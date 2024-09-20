@@ -8,7 +8,12 @@ import facebook from '../../images/facebook.png';
 import twitter from '../../images/twitter.png';
 import instagram from '../../images/instagram.png';
 import linkedin from '../../images/linkedin.png';
+import { Link } from 'react-router-dom';
 const Footer = () => {
+    // Function to scroll to the top when a link is clicked
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
   return (
 <div className='footer grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3'>
   <div class="tag ">
@@ -19,10 +24,12 @@ const Footer = () => {
   </div>
   <div class="tag">
     <h1>Get Help</h1>
-    <a href="#" class="center">FAQ</a>
-    <a href="#" class="center">Return</a>
-    <a href="#" class="center">Shipping</a>
-    <a href="#" class="center">Payment Option</a>
+    <Link to="/shop" className='center ' onClick={scrollToTop} >Shop</Link>
+    {/* <Link to="/deals" className='center' onClick={scrollToTop}>Deals</Link> */}
+    <Link to='/faqs' className="center" onClick={scrollToTop}>FAQ</Link>
+    <Link to='/blog' className="center" onClick={scrollToTop}>Blog</Link>
+    <Link to='/form' className='center' onClick={scrollToTop}>Conctact</Link>
+
   </div>
   <div class="tag">
     <h1>Our Stores</h1>

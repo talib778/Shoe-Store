@@ -13,13 +13,21 @@ import ContactForm from './Components/Form/ContactForm';
 import Footer from './Components/Footer/Footer';
 import Login from './Pages/Login/Login';
 import { credentials } from '../src/Pages/Login/Credentials';
+import Register from './Pages/Register/Register';
+import ResetPassword from './Pages/Login/ResetPassword';
+import Deals from './Pages/deals/deals';
 
 function setInitialCredentials() {
-  if (!localStorage.getItem('username') || !localStorage.getItem('password')) {
-    localStorage.setItem('username', credentials.username);
-    localStorage.setItem('password', credentials.password);
+  if (credentials && credentials.username && credentials.password) {
+    if (!localStorage.getItem('username') || !localStorage.getItem('password')) {
+      localStorage.setItem('username', credentials.username);
+      localStorage.setItem('password', credentials.password);
+    }
+  } else {
+    console.error('Credentials are not defined.');
   }
 }
+
 
 setInitialCredentials();
 
@@ -28,17 +36,23 @@ function App() {
     <CartProvider>
       <BrowserRouter>
         <Routes>
+          {/* Default route to Register */}
+          <Route path="/" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
           <Route 
             path="*" 
             element={
               <>
                 <Navbar />
                 <Routes>
-                  <Route path="/" element={<Home />} />
+                  <Route path="/home" element={<Home />} />
                   <Route path="/Shop" element={<Shop />} />
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/Blog/:id" element={<BlogDetail />} />
                   <Route path="/cart" element={<CartItems />} />
+                  <Route path="/deals" element={<Deals/>}/>
                   <Route path="/FAQs" element={<FAQ />} />
                   <Route path="/Form" element={<ContactForm />} />
                 </Routes>
@@ -46,7 +60,6 @@ function App() {
               </>
             } 
           />
-          <Route path="/Login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </CartProvider>

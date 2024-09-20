@@ -9,7 +9,7 @@
     margin-top: 90px;
     text-align: center;
     margin-bottom: 70px;
-    font-size: 24px;
+    font-size: 36px;
 }
 
 .faqList {
@@ -28,10 +28,14 @@
     font-weight: bold;
     cursor: pointer;
     margin-bottom: 5px;
+    background-color: lightgray;
+    padding: 20px;
 }
 
 .answer {
     font-size: 16px;
     padding-left: 20px;
-    color: #555;
+    color: black;
+    background-color:#ccc;
+    padding: 20px;
 }

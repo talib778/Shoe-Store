@@ -22,6 +22,9 @@ const products = [
   { id: 4, name: 'Shoes 4', price: 17999, img: img4, rating: 4.5 },
   { id: 5, name: 'Shoes 5', price: 17850, img: img5, rating: 5 },
   { id: 6, name: 'Shoes 6', price: 16777, img: img6, rating: 4.5 },
+  { id: 1, name: 'Shoes 1', price: 20000, img: img1, rating: 5 },
+  { id: 2, name: 'Shoes 2', price: 19500, img: img2, rating: 5 },
+  { id: 3, name: 'Shoes 3', price: 18900, img: img3, rating: 4.5 },
 ];
 
 const Card = () => {
